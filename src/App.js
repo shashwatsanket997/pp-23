@@ -14,7 +14,8 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         const productsArray = Object.values(data.products);
-        setProducts(productsArray);
+        const sortedProducts = productsArray.sort((a, b) => b.popularity - a.popularity);
+        setProducts(sortedProducts);
       });
   }, []);
 
